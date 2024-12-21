@@ -66,7 +66,7 @@ const Navbar = () => {
             <img
               src="src/assets/logo.svg"
               alt="MealBrain"
-              className="w-20 h-20 w-72 h-72"
+              className="w-72 h-72"
             />
           </Link>
           <Link to="/ask-ai" onClick={closeMenu}>
