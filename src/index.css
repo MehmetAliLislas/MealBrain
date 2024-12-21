@@ -1,3 +1,7 @@
+@tailwind utilities;
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+
+* {
+  font-family: "Lato", serif;
+}

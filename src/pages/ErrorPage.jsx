@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 
-const AskAI = () => {
+const ErrorPage = () => {
   return (
     <>
       <Navbar />
-      <div>AskAI</div>
+      Error Page
     </>
   );
 };
 
-export default AskAI;
+export default ErrorPage;

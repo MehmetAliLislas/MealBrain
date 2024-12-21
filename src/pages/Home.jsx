@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 
-const AskAI = () => {
+const Home = () => {
   return (
     <>
       <Navbar />
-      <div>AskAI</div>
+      <div>Home</div>
     </>
   );
 };
 
-export default AskAI;
+export default Home;
