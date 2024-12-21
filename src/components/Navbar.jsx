@@ -19,7 +19,7 @@ const Navbar = () => {
           <img
             src="src/assets/nav-logo.svg"
             alt="MealBrain"
-            className="w-28 h-28 sm:w-36 sm:h-36"
+            className="w-28 h-28 sm:w-36 sm:h-36 hover:p-4 duration-200 ease-linear"
           />
         </Link>
         <button
