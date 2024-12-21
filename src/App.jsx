@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import AboutPage from "./pages/AboutPage";
 import AskAI from "./pages/AskAI";
 import Home from "./pages/Home";

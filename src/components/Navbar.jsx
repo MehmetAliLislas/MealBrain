@@ -13,7 +13,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="relative flex justify-between items-center h-32 bg-gradient-to-l from-[#ff6100] to-[#ffb841]  text-white py-5 px-6 sm:px-20">
+    <div className="relative flex justify-between items-center h-32 bg-gradient-to-l from-[#ff6100] to-[#ffb841] text-white py-5 px-6 sm:px-20">
       <nav className="flex w-full justify-between items-center">
         <Link to="/">
           <img
@@ -23,7 +23,7 @@ const Navbar = () => {
           />
         </Link>
         <button
-          className="block sm:hidden text-white focus:outline-none"
+          className="block lg:hidden text-white focus:outline-none"
           onClick={toggleMenu}
         >
           <svg
@@ -41,7 +41,7 @@ const Navbar = () => {
             />
           </svg>
         </button>
-        <div className="hidden sm:flex gap-10 text-xs sm:text-base font-medium">
+        <div className="hidden md:hidden lg:block gap-10 text-xs sm:text-base font-medium">
           <Link
             to="/ask-ai"
             className="py-4 px-6 hover:bg-white hover:opacity-90 hover:text-black ease-in-out transition-all duration-300 rounded-full"

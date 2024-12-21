@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 
 const ErrorPage = () => {
   return (
-    <div className="h-screen bg-slate-100 overflow-hidden">
+    <div className="h-screen bg-main overflow-hidden">
       <Navbar />
       <div className="flex flex-col items-center justify-center gap-8 px-4 sm:px-6 md:px-10 lg:px-20 h-[calc(100vh-200px)]">
         <img
@@ -22,7 +22,10 @@ const ErrorPage = () => {
           </h5>
           <h5 className="text-lg sm:text-lg mt-5">
             You can go back to{" "}
-            <a href="/" className="text-orange-600">
+            <a
+              href="/"
+              className="text-orange-600 opacity-70 hover:opacity-100"
+            >
               Home Page
             </a>{" "}
             or try searching for what you need.
