@@ -8,7 +8,7 @@ const Loading = () => {
           Your Meal is Being Prepared!
         </h4>
         <img
-          src="src/assets/loading-gif.gif"
+          src="/assets/loading-gif.gif"
           alt="404"
           className="h-64 md:h-96 object-contain rounded-xl mt-5 md:mt-10 xl:mt-20"
         />

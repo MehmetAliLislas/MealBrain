@@ -7,7 +7,7 @@ const ErrorPage = () => {
       <Navbar />
       <div className="flex flex-col items-center justify-center gap-8 px-4 sm:px-6 md:px-10 lg:px-20 h-[calc(100vh-200px)]">
         <img
-          src="src/assets/404.png"
+          src="/assets/404.png"
           alt="404"
           className="h-64 md:h-96 object-contain rounded-xl mt-5 md:mt-10 xl:mt-20"
         />

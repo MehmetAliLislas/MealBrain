@@ -17,7 +17,7 @@ const Navbar = () => {
       <nav className="flex w-full justify-between items-center">
         <Link to="/">
           <img
-            src="src/assets/nav-logo.svg"
+            src="/assets/nav-logo.svg"
             alt="MealBrain"
             className="w-28 h-28 sm:w-36 sm:h-36 hover:p-4 duration-200 ease-linear"
           />
@@ -63,11 +63,7 @@ const Navbar = () => {
       >
         <div className="flex flex-col items-center justify-center h-full gap-8 text-xl font-semibold text-white">
           <Link to="/" onClick={closeMenu}>
-            <img
-              src="src/assets/logo.svg"
-              alt="MealBrain"
-              className="w-72 h-72"
-            />
+            <img src="/assets/logo.svg" alt="MealBrain" className="w-72 h-72" />
           </Link>
           <Link to="/ask-ai" onClick={closeMenu}>
             Ask delicious foods to AI

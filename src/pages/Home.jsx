@@ -108,7 +108,7 @@ const Home = () => {
               className="group flex gap-3 justify-center items-center rounded-full bg-amber-800 text-lg text-white px-6 py-2 hover:bg-amber-900 transition-transform duration-300 ease-linear shadow-md opacity-60 hover:opacity-100 transform hover:scale-110"
             >
               <img
-                src="src/assets/ai.svg"
+                src="/assets/ai.svg"
                 alt="AI"
                 className="fill-white w-8 h-8 transition-transform duration-500 group-hover:rotate-180"
               />
