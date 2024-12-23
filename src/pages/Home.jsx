@@ -2,8 +2,12 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Loading from "../components/Loading";
 import IngredientList from "../components/IngredientList";
+import { QRCodeSVG } from "qrcode.react";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Home = () => {
+  // const isMobile = useMediaQuery("(max-width: 768px)"); // fetaure disabled for user experince on web.
+
   const [meal, setMeal] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -82,6 +86,9 @@ const Home = () => {
             <div className="flex flex-col lg:flex-row gap-8 mt-8">
               <div className="lg:w-2/4 w-full">
                 <h2 className="font-medium text-2xl">Ingredients</h2>
+                <p className="italic opacity-75 text-sm">
+                  *You can select your existing ingredients by clicking
+                </p>
                 <IngredientList ingredients={ingredients} />
               </div>
               <div className="lg:w-2/4 w-full">
@@ -102,6 +109,22 @@ const Home = () => {
                 )}
               </div>
             </div>
+          </div>
+          <div className="qr-code flex items-center justify-center flex-col mt-10">
+            <p className="text-center flex justify-center mb-5 lg:text-base text-nowrap px-2  text-sm font-medium font-italic">
+              Scan the QR code or click to view the full recipe
+            </p>
+            <a
+              href={meal.strSource}
+              target={`${meal.strSource}`}
+              rel="noopener noreferrer"
+            >
+              <QRCodeSVG
+                className="shadow-md shadow-gray-400 rounded-xl p-2 bg-slate-50 duration-100 hover:scale-95"
+                value={`${meal.strSource}`}
+                size={256}
+              />
+            </a>
           </div>
           <div className="flex justify-center items-center mt-12 mb-6">
             <button
