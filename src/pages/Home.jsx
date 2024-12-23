@@ -78,7 +78,8 @@ const Home = () => {
                 <p className="text-sm">{meal.strInstructions}</p>
               </div>
             </div>
-            <div className="flex flex-col lg:flex-row gap-8 mt-12">
+            <div className="page-break border-[1px] border-amber-700 opacity-60 mt-10"></div>
+            <div className="flex flex-col lg:flex-row gap-8 mt-8">
               <div className="lg:w-2/4 w-full">
                 <h2 className="font-medium text-2xl">Ingredients</h2>
                 <IngredientList ingredients={ingredients} />
