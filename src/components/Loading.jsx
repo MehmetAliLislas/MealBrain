@@ -5,7 +5,7 @@ const Loading = () => {
     <div className="h-screen bg-main overflow-hidden">
       <div className="flex flex-col items-center justify-center gap-8 px-4 sm:px-6 md:px-10 lg:px-20 h-[calc(100vh-200px)]">
         <h4 className="text-xl xl:text-4xl font-medium">
-          Your Meal is Being Prepared!
+          Your Meal is Being Prepared! 🫕
         </h4>
         <img
           src="/assets/loading-gif.gif"

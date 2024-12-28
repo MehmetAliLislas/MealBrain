@@ -120,7 +120,7 @@ const Home = () => {
               rel="noopener noreferrer"
             >
               <QRCodeSVG
-                className="shadow-md shadow-gray-400 rounded-xl p-2 bg-slate-50 duration-100 hover:scale-95"
+                className="shadow-md shadow-gray-400 rounded-xl p-2 bg-slate-50 duration-150 hover:scale-95"
                 value={`${meal.strSource}`}
                 size={256}
               />
