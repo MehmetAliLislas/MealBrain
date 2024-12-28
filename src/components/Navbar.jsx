@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <div className="relative flex justify-between items-center h-32 bg-gradient-to-l from-[#ff6100] to-[#ffb841] text-white py-5 px-6 sm:px-20">
       <nav className="flex w-full justify-between items-center">
-        <Link to="/">
+        <Link to="/" onClick={() => window.location.reload()}>
           <img
             src="/assets/nav-logo.svg"
             alt="MealBrain"
@@ -44,15 +44,15 @@ const Navbar = () => {
         <div className="hidden md:hidden lg:block gap-10 text-xs sm:text-base font-medium">
           <Link
             to="/ask-ai"
-            className="py-4 px-6 hover:bg-white hover:opacity-90 hover:text-black ease-in-out transition-all duration-300 rounded-full"
+            className="py-4 px-6 hover:bg-white hover:opacity-90 hover:text-black ease-in-out transition-all duration-300 rounded-full notranslate"
           >
-            Ask delicious foods to AI
+            Yapay Zeka Mutfağında!
           </Link>
           <Link
             to="/about"
-            className="py-4 px-6 hover:bg-white hover:opacity-90 hover:text-black ease-in-out transition-all duration-300 rounded-full"
+            className="py-4 px-6 hover:bg-white hover:opacity-90 hover:text-black ease-in-out transition-all duration-300 rounded-full notranslate"
           >
-            Why Meal Brain
+            Neden Meal Brain
           </Link>
         </div>
       </nav>
@@ -65,11 +65,11 @@ const Navbar = () => {
           <Link to="/" onClick={closeMenu}>
             <img src="/assets/logo.svg" alt="MealBrain" className="w-72 h-72" />
           </Link>
-          <Link to="/ask-ai" onClick={closeMenu}>
-            Ask delicious foods to AI
+          <Link to="/ask-ai" onClick={closeMenu} className="notranslate">
+            Yapay Zeka Mutfağında!
           </Link>
-          <Link to="/about" onClick={closeMenu}>
-            Why Meal Brain
+          <Link to="/about" onClick={closeMenu} className="notranslate">
+            Neden Meal Brain
           </Link>
           <button
             className="absolute top-5 right-5 text-white"

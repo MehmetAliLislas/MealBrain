@@ -13,22 +13,20 @@ const ErrorPage = () => {
         />
         <div className="text-center">
           <h3 className="font-medium text-2xl sm:text-3xl md:text-4xl">
-            Oops! Page Not Found
+            Oops! Sayfa Bulunamadı
           </h3>
           <h5 className="text-lg sm:text-lg mt-7">
-            It seems like the page you are looking for doesn't exist or has been
-            moved. <br />
-            Don't worry, this happens to the best of us!
+            Görünüşe göre aradığınız sayfa mevcut değil veya taşınmış <br />
+            Endişelenmeyin, bu hepimizin başına gelir!
           </h5>
           <h5 className="text-lg sm:text-lg mt-5">
-            You can go back to{" "}
             <a
               href="/"
               className="text-orange-600 opacity-70 hover:opacity-100"
             >
-              Home Page
+              Ana Sayfaya
             </a>{" "}
-            or try searching for what you need.
+            geri dönebilir veya ihtiyacınız olanı aramayı deneyebilirsiniz.
           </h5>
         </div>
       </div>

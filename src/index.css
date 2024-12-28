@@ -6,6 +6,37 @@
   font-family: "Poppins", serif;
 }
 
+body {
+  top: 0 !important;
+
+  ::selection {
+    background-color: #8a5817;
+    color: white;
+  }
+}
+
+body>div.VIpgJd-ZVi9od-aZ2wEe-wOHMyf.VIpgJd-ZVi9od-aZ2wEe-wOHMyf-ti6hGc {
+  display: none !important;
+}
+
+#\:0\.container {
+  display: none !important;
+}
+
+#\:1\.container {
+  display: none !important;
+}
+
+#google_translate_element {
+  display: none !important;
+  overflow: hidden;
+}
+
+#goog-gt-tt {
+  display: none !important;
+  pointer-events: none;
+}
+
 h1,
 h2,
 h3,
@@ -14,4 +45,9 @@ h5,
 h6,
 p {
   cursor: default;
+}
+
+font:hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
 }

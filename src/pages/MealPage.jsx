@@ -38,6 +38,11 @@ const Home = () => {
     fetchMeal();
   }, []);
 
+  useEffect(() => {
+    if (meal) {
+      document.title = `${meal.strMeal} - Meal Brains`;
+    }
+  }, [meal]);
   if (loading) {
     return <Loading />;
   }
