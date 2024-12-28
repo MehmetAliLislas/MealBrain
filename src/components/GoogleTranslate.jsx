@@ -1,7 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const GoogleTranslate = () => {
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+
     const addGoogleTranslateScript = () => {
       const script = document.createElement("script");
       script.src =
@@ -18,14 +26,6 @@ const GoogleTranslate = () => {
         },
         "google_translate_element"
       );
-
-      setTimeout(() => {
-        const selectLanguage = document.querySelector(".goog-te-combo");
-        if (selectLanguage) {
-          selectLanguage.value = "tr";
-          selectLanguage.dispatchEvent(new Event("change"));
-        }
-      });
     };
 
     addGoogleTranslateScript();
@@ -36,7 +36,9 @@ const GoogleTranslate = () => {
       );
       if (script) document.body.removeChild(script);
     };
-  }, []);
+  }, [isClient]);
+
+  if (!isClient) return null;
 
   return <div id="google_translate_element"></div>;
 };
