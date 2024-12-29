@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <div className="relative flex justify-between items-center h-32 bg-gradient-to-l from-[#ff6100] to-[#ffb841] text-white py-5 px-6 sm:px-20">
       <nav className="flex w-full justify-between items-center">
-        <Link to="/" onClick={() => window.location.reload()}>
+        <Link to="/">
           <img
             src="/assets/nav-logo.svg"
             alt="MealBrain"

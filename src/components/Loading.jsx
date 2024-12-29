@@ -3,7 +3,7 @@ import React from "react";
 const Loading = () => {
   return (
     <div className="h-screen bg-main overflow-hidden notranslate">
-      <div className="flex flex-col items-center justify-center gap-8 px-4 sm:px-6 md:px-10 lg:px-20 h-[calc(100vh-200px)]">
+      <div className="flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-20 h-[calc(100vh-200px)]">
         <h4 className="text-xl xl:text-4xl font-medium">
           Yemeğin Hazırlanıyor!🫕
         </h4>

@@ -5,12 +5,10 @@ import IngredientList from "../components/IngredientList";
 import { QRCodeSVG } from "qrcode.react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import GoogleTranslate from "../components/GoogleTranslate";
-import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [meal, setMeal] = useState(null);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
 
   const fetchMeal = async () => {
     try {
@@ -20,13 +18,8 @@ const Home = () => {
           "https://www.themealdb.com/api/json/v1/1/random.php"
         );
         const data = await response.json();
-        const fetchedMeal = data.meals[0];
-        setMeal(fetchedMeal);
+        setMeal(data.meals[0]);
         setLoading(false);
-
-        if (fetchedMeal) {
-          navigate(`/${fetchedMeal.idMeal}`);
-        }
       }, 1000);
     } catch (error) {
       console.error("Error fetching meal:", error);
