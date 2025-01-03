@@ -8,8 +8,8 @@ const AboutPage = () => {
       <div className="bg-container py-2 min-h-screen notranslate">
         <div className="flex flex-col gap-4 h-auto m-8 bg-main overflow-hidden shadow-lg rounded-xl p-8 mx-4 sm:mx-6 lg:mx-14">
           <img
-            src="assets/loading-image.png"
-            alt="Loading Image"
+            src="assets/about-image.png"
+            alt="About Image"
             className="rounded-lg shadow-md w-[800px] h-auto mx-auto"
           />
           <h1 className="text-2xl xl:text-4xl font-bold mt-4 text-gray-800 text-center opacity-90">

@@ -55,8 +55,8 @@ const Home = () => {
     <>
       <Navbar />
       <GoogleTranslate />
-      <div className="meal-container bg-main h-full py-8">
-        <div className="meal-wrapper bg-container shadow-gray-500 shadow-2xl rounded-xl p-6 lg:p-10 mx-4 sm:mx-6 md:mx-10 lg:mx-20">
+      <div className="meal-container bg-main h-full py-8 ">
+        <div className="meal-wrapper border border-opacity-35 border-amber-700 bg-container shadow-gray-500 shadow-2xl rounded-xl p-6 lg:p-10 mx-4 sm:mx-6 md:mx-10 lg:mx-20">
           <div>
             <div className="meal-info grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <img
@@ -96,8 +96,8 @@ const Home = () => {
               <div className="lg:w-2/4 w-full">
                 {videoId && (
                   <div>
-                    <h2 className="text-xl lg:text-2xl font-medium text-nowrap mb-4">
-                      Watch the recipe video
+                    <h2 className="text-xl lg:text-2xl font-medium text-nowrap mb-4 notranslate">
+                      Tarif videosunu izleyin
                     </h2>
                     <iframe
                       className="max-w-screen h-96 w-full rounded-lg"
