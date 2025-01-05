@@ -14,11 +14,11 @@ const Home = () => {
     try {
       setLoading(true);
       setTimeout(async () => {
-        const response = await fetch(
-          "https://www.themealdb.com/api/json/v1/1/random.php"
-        );
+        const response = await fetch("../mealData.json");
         const data = await response.json();
-        setMeal(data.meals[0]);
+        const randomIndex = Math.floor(Math.random() * data.length);
+        const randomMeal = data[randomIndex];
+        setMeal(randomMeal);
         setLoading(false);
       }, 1000);
     } catch (error) {
@@ -54,7 +54,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <GoogleTranslate />
+      {/* <GoogleTranslate /> */}
       <div className="meal-container bg-main h-full py-8 ">
         <div className="meal-wrapper border border-opacity-35 border-amber-700 bg-container shadow-gray-500 shadow-2xl rounded-xl p-6 lg:p-10 mx-4 sm:mx-6 md:mx-10 lg:mx-20">
           <div>
@@ -67,14 +67,14 @@ const Home = () => {
               <div>
                 <div className="meal-props flex gap-3 mb-4 py-4 overflow-auto">
                   <p className="px-4 py-2 text-xs lg:text-base bg-amber-800 opacity-60 hover:opacity-100 rounded-full text-nowrap text-white">
-                    Area: {meal.strArea}
+                    Bölge: {meal.strArea}
                   </p>
                   <p className="px-4 py-2 text-xs lg:text-base bg-amber-800 opacity-60 hover:opacity-100 rounded-full text-nowrap text-white">
-                    Category: {meal.strCategory}
+                    Kategori: {meal.strCategory}
                   </p>
                   {meal.strTags && (
                     <p className="px-4 py-2 text-xs lg:text-base bg-amber-800 opacity-60 hover:opacity-100 rounded-full text-nowrap text-white">
-                      Tags: {meal.strTags}
+                      Etiketler: {meal.strTags}
                     </p>
                   )}
                 </div>
