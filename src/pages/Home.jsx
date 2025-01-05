@@ -14,7 +14,7 @@ const Home = () => {
     try {
       setLoading(true);
       setTimeout(async () => {
-        const response = await fetch("../mealData.json");
+        const response = await fetch("./assets/mealData.json");
         const data = await response.json();
         const randomIndex = Math.floor(Math.random() * data.length);
         const randomMeal = data[randomIndex];
