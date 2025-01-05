@@ -20,6 +20,7 @@ const Home = () => {
         const randomMeal = data[randomIndex];
         setMeal(randomMeal);
         setLoading(false);
+        document.title = `Meal Brain 🫕 - ${randomMeal.strMeal}`;
       }, 1000);
     } catch (error) {
       console.error("Error fetching meal:", error);
