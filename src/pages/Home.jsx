@@ -13,6 +13,7 @@ const Home = () => {
   const fetchMeal = async () => {
     try {
       setLoading(true);
+      setShowFullInstructions(false);
       setTimeout(async () => {
         const response = await fetch("./assets/mealData.json");
         const data = await response.json();
@@ -20,7 +21,7 @@ const Home = () => {
         const randomMeal = data[randomIndex];
         setMeal(randomMeal);
         setLoading(false);
-        document.title = `Meal Brain  🫕 - ${randomMeal.strMeal}`;
+        document.title = `Meal Brain 🫕 - ${randomMeal.strMeal}`;
       }, 1000);
     } catch (error) {
       console.error("Error fetching meal:", error);
