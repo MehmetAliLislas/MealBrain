@@ -5,7 +5,7 @@ const AboutPage = () => {
   return (
     <>
       <Navbar />
-      <div className="bg-main py-2 min-h-screen notranslate">
+      <div className="bg-main py-2 min-h-screen">
         <div className="flex flex-col gap-4 h-auto m-8 bg-container overflow-hidden shadow-lg rounded-xl p-8 mx-4 sm:mx-6 lg:mx-14">
           <img
             src="assets/about-image.png"

@@ -4,11 +4,11 @@ import Loading from "../components/Loading";
 import IngredientList from "../components/IngredientList";
 import { QRCodeSVG } from "qrcode.react";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import GoogleTranslate from "../components/GoogleTranslate";
 
 const Home = () => {
   const [meal, setMeal] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showFullInstructions, setShowFullInstructions] = useState(false);
 
   const fetchMeal = async () => {
     try {
@@ -20,7 +20,7 @@ const Home = () => {
         const randomMeal = data[randomIndex];
         setMeal(randomMeal);
         setLoading(false);
-        document.title = `Meal Brain 🫕 - ${randomMeal.strMeal}`;
+        document.title = `Meal Brain  🫕 - ${randomMeal.strMeal}`;
       }, 1000);
     } catch (error) {
       console.error("Error fetching meal:", error);
@@ -35,6 +35,17 @@ const Home = () => {
   if (loading) {
     return <Loading />;
   }
+
+  const toggleInstructions = () => {
+    setShowFullInstructions(!showFullInstructions);
+  };
+
+  const getShortInstructions = (instructions, limit) => {
+    if (instructions.length <= limit) return instructions;
+    return `${instructions.substring(0, limit)}...`;
+  };
+
+  const instructionsLimit = 500;
 
   const ingredients = [];
   for (let i = 1; i <= 20; i++) {
@@ -55,8 +66,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      {/* <GoogleTranslate /> */}
-      <div className="meal-container bg-main h-full py-8 ">
+      <div className="meal-container bg-main h-full py-8">
         <div className="meal-wrapper border border-opacity-35 border-amber-700 bg-container shadow-gray-500 shadow-2xl rounded-xl p-6 lg:p-10 mx-4 sm:mx-6 md:mx-10 lg:mx-20">
           <div>
             <div className="meal-info grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -80,16 +90,31 @@ const Home = () => {
                   )}
                 </div>
                 <h1 className="font-medium text-4xl mb-4">{meal.strMeal}</h1>
-                <p className="text-sm">{meal.strInstructions}</p>
+                <p className="text-sm">
+                  {showFullInstructions
+                    ? meal.strInstructions
+                    : getShortInstructions(
+                        meal.strInstructions,
+                        instructionsLimit
+                      )}
+                </p>
+                {meal.strInstructions.length > instructionsLimit && (
+                  <button
+                    onClick={toggleInstructions}
+                    className="text-amber-600 opacity-90 mt-2 hover:text-amber-800 transition-all duration-300 ease-linear"
+                  >
+                    {showFullInstructions
+                      ? "Daha az göster"
+                      : "Daha fazla göster"}
+                  </button>
+                )}
               </div>
             </div>
             <div className="page-break border-[1px] border-amber-700 opacity-60 mt-10"></div>
             <div className="flex flex-col lg:flex-row gap-8 mt-8">
               <div className="lg:w-2/4 w-full">
-                <h2 className="font-medium text-2xl notranslate">
-                  İçindekiler
-                </h2>
-                <p className="italic opacity-75 text-sm notranslate">
+                <h2 className="font-medium text-2xl">İçindekiler</h2>
+                <p className="italic opacity-75 text-sm">
                   *Mevcut malzemelerinizi listeye tıklayarak seçebilirsiniz
                 </p>
                 <IngredientList ingredients={ingredients} />
@@ -97,7 +122,7 @@ const Home = () => {
               <div className="lg:w-2/4 w-full">
                 {videoId && (
                   <div>
-                    <h2 className="text-xl lg:text-2xl font-medium text-nowrap mb-4 notranslate">
+                    <h2 className="text-xl lg:text-2xl font-medium text-nowrap mb-4">
                       Tarif videosunu izleyin
                     </h2>
                     <iframe
@@ -114,7 +139,7 @@ const Home = () => {
             </div>
           </div>
           <div className="qr-code flex items-center justify-center flex-col mt-10">
-            <p className="text-center flex justify-center mb-5 lg:text-base px-2 text-sm font-medium font-italic notranslate">
+            <p className="text-center flex justify-center mb-5 lg:text-base px-2 text-sm font-medium font-italic">
               Detaylı tarifi görüntülemek için tıklayın veya QR kodu taratın
             </p>
             <a

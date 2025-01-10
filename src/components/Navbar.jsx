@@ -44,13 +44,13 @@ const Navbar = () => {
         <div className="hidden md:hidden lg:block gap-10 text-xs sm:text-base font-medium">
           <Link
             to="/ask-ai"
-            className="py-4 px-6 hover:bg-white hover:opacity-90 hover:text-black ease-in-out transition-all duration-300 rounded-full notranslate"
+            className="py-4 px-6 hover:bg-white hover:opacity-90 hover:text-black ease-in-out transition-all duration-300 rounded-full"
           >
             Yapay Zeka Mutfağında!
           </Link>
           <Link
             to="/about"
-            className="py-4 px-6 hover:bg-white hover:opacity-90 hover:text-black ease-in-out transition-all duration-300 rounded-full notranslate"
+            className="py-4 px-6 hover:bg-white hover:opacity-90 hover:text-black ease-in-out transition-all duration-300 rounded-full"
           >
             Neden Meal Brain
           </Link>
@@ -65,10 +65,10 @@ const Navbar = () => {
           <Link to="/" onClick={closeMenu}>
             <img src="/assets/logo.svg" alt="MealBrain" className="w-72 h-72" />
           </Link>
-          <Link to="/ask-ai" onClick={closeMenu} className="notranslate">
+          <Link to="/ask-ai" onClick={closeMenu}>
             Yapay Zeka Mutfağında!
           </Link>
-          <Link to="/about" onClick={closeMenu} className="notranslate">
+          <Link to="/about" onClick={closeMenu}>
             Neden Meal Brain
           </Link>
           <button
