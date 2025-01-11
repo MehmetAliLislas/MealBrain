@@ -17,8 +17,8 @@ function AskAI() {
     }
 
     setError(false);
-
     setLoading(true);
+
     try {
       const options = {
         method: "POST",
@@ -56,18 +56,29 @@ function AskAI() {
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && !loading) {
       e.preventDefault();
       sendChat();
     }
   };
 
+  const examplePrompts = [
+    "Meal Brain nedir?",
+    "Bana pratik bir yemek öner",
+    "Yemek yapmanın püf noktaları",
+  ];
+
+  const handleExampleClick = (example) => {
+    setPrompt(example);
+    sendChat();
+  };
+
   return (
     <div className="bg-main h-screen overflow-hidden">
       <Navbar />
-      <div className="flex-grow p-4">
-        <div className="max-w-6xl mx-auto bg-container p-6 rounded-lg shadow-md lg:mt-12">
-          <div className="space-y-4 overflow-y-auto h-[550px]">
+      <div className="p-4">
+        <div className="max-w-6xl mx-auto bg-container p-6 rounded-lg shadow-md">
+          <div className="space-y-4 overflow-y-auto lg:h-[500px] h-[300px]">
             {history.map((chat, index) => (
               <div
                 key={index}
@@ -83,13 +94,13 @@ function AskAI() {
                         : "text-gray-600 text-2xl"
                     }`}
                   >
-                    {chat.role === "user" ? "Siz" : "MealBrain"}
+                    {chat.role === "user" ? "Siz" : "Meal Brain"}
                   </span>
                   <div
                     className={`max-w-sm px-4 py-2 rounded-lg ${
                       chat.role === "user"
-                        ? "bg-[#c04a01] opacity-70 hover:opacity-90 text-white duration-300 transition-all mr-4"
-                        : "bg-[#502002] opacity-70 hover:opacity-90 text-white duration-300 transition-all"
+                        ? "bg-[#c04a01] opacity-70 hover:opacity-80 text-white duration-300 transition-all mr-4"
+                        : "bg-[#c04a01] opacity-70 hover:opacity-80 text-white duration-300 transition-all"
                     }`}
                   >
                     <ReactMarkdown>{chat.parts[0].text}</ReactMarkdown>
@@ -98,29 +109,48 @@ function AskAI() {
               </div>
             ))}
           </div>
-          <div className="pt-4 flex justify-between items-center border-t mt-4">
-            <input
-              type="text"
-              value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder="Bir şeyler yazın..."
-              className={`w-full p-2 rounded-xl border focus:outline-none focus:ring-2 hover:border-amber-500 focus:ring-amber-600 duration-300 transition-all ${
-                error ? "border-red-500" : ""
-              }`}
-            />
-            <button
-              onClick={sendChat}
-              disabled={loading}
-              className="ml-4 group flex gap-1 justify-center items-center rounded-full bg-amber-800 text-lg text-white px-6 py-2 hover:bg-amber-900 transition-transform duration-300 ease-linear shadow-md opacity-60 hover:opacity-100 transform"
-            >
-              <img
-                src="/assets/ai.svg"
-                alt="Logo"
-                className="w-6 h-6 mr-2 fill-white transition-transform duration-500 group-hover:rotate-180"
+          <div className="mt-4 space-y-2"></div>
+          <div className="pt-4 justify-between items-center border-t mt-4">
+            <div className="flex flex-col gap-2">
+              {examplePrompts.map((example, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleExampleClick(example)}
+                  className="block w-full text-left p-2 bg-gray-200 rounded-lg hover:bg-gray-300 text-sm"
+                >
+                  {example}
+                </button>
+              ))}
+            </div>
+            <div className="flex mt-2">
+              <input
+                type="text"
+                value={prompt}
+                onChange={(e) => setPrompt(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder={
+                  error
+                    ? "Lütfen geçerli bir mesaj yazın..."
+                    : "Bir şeyler yazın..."
+                }
+                className={`w-full p-2 rounded-xl border focus:outline-none focus:ring-2 hover:border-amber-500 focus:ring-amber-600 duration-300 transition-all ${
+                  error ? "border-red-500 border-2" : ""
+                }`}
+                disabled={loading}
               />
-              {loading ? "Yükleniyor..." : "Gönder"}
-            </button>
+              <button
+                onClick={sendChat}
+                disabled={loading}
+                className="ml-4 group flex gap-1 justify-center items-center rounded-full bg-amber-800 text-lg text-white px-6 py-2 hover:bg-amber-900 transition-transform duration-300 ease-linear shadow-md opacity-60 hover:opacity-100 transform"
+              >
+                <img
+                  src="/assets/ai.svg"
+                  alt="Logo"
+                  className="w-6 h-6 mr-2 fill-white transition-transform duration-500 group-hover:rotate-180"
+                />
+                {loading ? "Yükleniyor..." : "Gönder"}
+              </button>
+            </div>
           </div>
         </div>
       </div>
