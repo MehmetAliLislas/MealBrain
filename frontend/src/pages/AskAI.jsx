@@ -78,7 +78,13 @@ function AskAI() {
       <Navbar />
       <div className="p-4">
         <div className="max-w-6xl mx-auto bg-container p-6 rounded-lg shadow-md">
-          <div className="space-y-4 overflow-y-auto lg:h-[500px] h-[300px]">
+          <div className="overflow-y-auto lg:h-[500px] h-[300px]">
+            <div className="opening-message">
+              <span class="text-sm text-gray-600 -mb-4">Meal Brain</span>
+              <div class="max-w-sm px-4 py-2 rounded-lg bg-[#b14400] opacity-70 hover:opacity-80 text-white duration-300 transition-all">
+                Merhaba, size nasıl yardımcı olabilirim?
+              </div>
+            </div>
             {history.map((chat, index) => (
               <div
                 key={index}
@@ -100,7 +106,7 @@ function AskAI() {
                     className={`max-w-sm px-4 py-2 rounded-lg ${
                       chat.role === "user"
                         ? "bg-[#c04a01] opacity-70 hover:opacity-80 text-white duration-300 transition-all mr-4"
-                        : "bg-[#c04a01] opacity-70 hover:opacity-80 text-white duration-300 transition-all"
+                        : "bg-[#b14400] opacity-70 hover:opacity-80 text-white duration-300 transition-all"
                     }`}
                   >
                     <ReactMarkdown>{chat.parts[0].text}</ReactMarkdown>
@@ -109,7 +115,6 @@ function AskAI() {
               </div>
             ))}
           </div>
-          <div className="mt-4 space-y-2"></div>
           <div className="pt-4 justify-between items-center border-t mt-4">
             <div className="flex flex-col gap-2">
               {examplePrompts.map((example, index) => (
