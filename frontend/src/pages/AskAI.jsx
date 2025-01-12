@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import ReactMarkdown from "react-markdown";
 
@@ -8,6 +8,7 @@ function AskAI() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
+  const lastUserMessageRef = useRef(null);
   const backendURL = "http://localhost:8080/gemini";
 
   const sendChat = async () => {
@@ -18,6 +19,14 @@ function AskAI() {
 
     setError(false);
     setLoading(true);
+
+    setHistory((oldHistory) => [
+      ...oldHistory,
+      {
+        role: "user",
+        parts: [{ text: prompt }],
+      },
+    ]);
 
     try {
       const options = {
@@ -37,10 +46,6 @@ function AskAI() {
 
       setHistory((oldHistory) => [
         ...oldHistory,
-        {
-          role: "user",
-          parts: [{ text: prompt }],
-        },
         {
           role: "model",
           parts: [{ text: data.text }],
@@ -73,16 +78,25 @@ function AskAI() {
     sendChat();
   };
 
+  useEffect(() => {
+    if (lastUserMessageRef.current) {
+      lastUserMessageRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
+    }
+  }, [history]);
+
   return (
-    <div className="bg-main h-screen overflow-hidden">
+    <div className="bg-container h-screen ">
       <Navbar />
       <div className="p-4">
-        <div className="max-w-6xl mx-auto bg-container p-6 rounded-lg shadow-md">
+        <div className="max-w-6xl mx-auto bg-container p-6 border border-opacity-35 border-green-200 shadow-gray-500 shadow-2xl rounded-xl">
           <div className="overflow-y-auto lg:h-[500px] h-[300px]">
             <div className="opening-message">
-              <span class="text-sm text-gray-600 -mb-4">Meal Brain</span>
-              <div class="max-w-sm px-4 py-2 rounded-lg bg-[#b14400] opacity-70 hover:opacity-80 text-white duration-300 transition-all">
-                Merhaba, size nasıl yardımcı olabilirim?
+              <span className="text-sm text-gray-600 -mb-4">Meal Brain 🫕</span>
+              <div className="max-w-sm px-4 py-2 rounded-full bg-emerald-700 text-white duration-300 transition-all">
+                Merhaba! Nasıl yardımcı olabilirim?
               </div>
             </div>
             {history.map((chat, index) => (
@@ -100,14 +114,15 @@ function AskAI() {
                         : "text-gray-600 text-2xl"
                     }`}
                   >
-                    {chat.role === "user" ? "Siz" : "Meal Brain"}
+                    {chat.role === "user" ? "Siz" : "Meal Brain 🫕"}
                   </span>
                   <div
                     className={`max-w-sm px-4 py-2 rounded-lg ${
                       chat.role === "user"
-                        ? "bg-[#c04a01] opacity-70 hover:opacity-80 text-white duration-300 transition-all mr-4"
-                        : "bg-[#b14400] opacity-70 hover:opacity-80 text-white duration-300 transition-all"
+                        ? "bg-green-600 hover:opacity-90 text-white duration-300 transition-all mr-4 break-words rounded-3xl"
+                        : "bg-emerald-700 hover:opacity-90 text-white duration-300 transition-all break-words rounded-3xl"
                     }`}
+                    ref={chat.role === "user" ? lastUserMessageRef : null}
                   >
                     <ReactMarkdown>{chat.parts[0].text}</ReactMarkdown>
                   </div>
@@ -138,20 +153,22 @@ function AskAI() {
                     ? "Lütfen geçerli bir mesaj yazın..."
                     : "Bir şeyler yazın..."
                 }
-                className={`w-full p-2 rounded-xl border focus:outline-none focus:ring-2 hover:border-amber-500 focus:ring-amber-600 duration-300 transition-all ${
-                  error ? "border-red-500 border-2" : ""
+                className={`w-full p-2 rounded-xl border focus:outline-none focus:ring-2 hover:border-green-500 focus:ring-green-600 duration-300 transition-all ${
+                  error ? "border-red-100" : ""
                 }`}
                 disabled={loading}
               />
               <button
                 onClick={sendChat}
                 disabled={loading}
-                className="ml-4 group flex gap-1 justify-center items-center rounded-full bg-amber-800 text-lg text-white px-6 py-2 hover:bg-amber-900 transition-transform duration-300 ease-linear shadow-md opacity-60 hover:opacity-100 transform"
+                className="ml-4 group flex gap-1 justify-center items-center rounded-full bg-emerald-700 text-lg text-white px-6 py-2 hover:bg-green-900 transition-transform duration-300 ease-linear shadow-md transform"
               >
                 <img
                   src="/assets/ai.svg"
                   alt="Logo"
-                  className="w-6 h-6 mr-2 fill-white transition-transform duration-500 group-hover:rotate-180"
+                  className={`w-6 h-6 mr-2 fill-white transition-transform duration-500 group-hover:rotate-180 ${
+                    loading ? "animate-spin" : ""
+                  }`}
                 />
                 {loading ? "Yükleniyor..." : "Gönder"}
               </button>
