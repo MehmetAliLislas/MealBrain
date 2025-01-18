@@ -95,7 +95,7 @@ function AskAI() {
           <div className="overflow-y-auto lg:h-[500px] h-[300px]">
             <div className="opening-message">
               <span className="text-sm text-gray-600 -mb-4">Meal Brain 🫕</span>
-              <div className="max-w-sm px-4 py-2 rounded-lg bg-emerald-700 text-white duration-300 transition-all">
+              <div className="max-w-sm px-4 py-2 rounded-xl bg-emerald-700 text-white duration-300 transition-all">
                 Merhaba! Nasıl yardımcı olabilirim?
               </div>
             </div>
@@ -117,10 +117,10 @@ function AskAI() {
                     {chat.role === "user" ? "Siz" : "Meal Brain 🫕"}
                   </span>
                   <div
-                    className={`max-w-sm px-4 py-2 rounded-lg ${
+                    className={`max-w-sm px-4 py-2 rounded-2xl ${
                       chat.role === "user"
-                        ? "bg-green-600 hover:opacity-90 text-white duration-300 transition-all mr-4 break-words"
-                        : "bg-emerald-700 hover:opacity-90 text-white duration-300 transition-all break-words"
+                        ? "bg-green-600 text-white duration-300 transition-all mr-4 break-words"
+                        : "bg-emerald-700 text-white duration-300 transition-all break-words"
                     }`}
                     ref={chat.role === "user" ? lastUserMessageRef : null}
                   >
