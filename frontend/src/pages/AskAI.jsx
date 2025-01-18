@@ -95,7 +95,7 @@ function AskAI() {
           <div className="overflow-y-auto lg:h-[500px] h-[300px]">
             <div className="opening-message">
               <span className="text-sm text-gray-600 -mb-4">Meal Brain 🫕</span>
-              <div className="max-w-sm px-4 py-2 rounded-full bg-emerald-700 text-white duration-300 transition-all">
+              <div className="max-w-sm px-4 py-2 rounded-lg bg-emerald-700 text-white duration-300 transition-all">
                 Merhaba! Nasıl yardımcı olabilirim?
               </div>
             </div>
@@ -119,8 +119,8 @@ function AskAI() {
                   <div
                     className={`max-w-sm px-4 py-2 rounded-lg ${
                       chat.role === "user"
-                        ? "bg-green-600 hover:opacity-90 text-white duration-300 transition-all mr-4 break-words rounded-3xl"
-                        : "bg-emerald-700 hover:opacity-90 text-white duration-300 transition-all break-words rounded-3xl"
+                        ? "bg-green-600 hover:opacity-90 text-white duration-300 transition-all mr-4 break-words"
+                        : "bg-emerald-700 hover:opacity-90 text-white duration-300 transition-all break-words"
                     }`}
                     ref={chat.role === "user" ? lastUserMessageRef : null}
                   >
