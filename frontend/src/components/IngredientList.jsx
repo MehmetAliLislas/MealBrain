@@ -19,7 +19,7 @@ const IngredientList = ({ ingredients }) => {
           onClick={() => handleSelect(index)}
           className={`bg-gray-100 p-2 rounded-lg shadow-md mt-2 cursor-pointer ${
             selectedItems.includes(index)
-              ? "bg-slate-200 border-amber-800 border-[1px]"
+              ? "bg-slate-200 border-slate-800 border-[1px]"
               : "hover:bg-gray-200"
           }`}
         >

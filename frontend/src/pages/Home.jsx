@@ -3,7 +3,6 @@ import Navbar from "../components/Navbar";
 import Loading from "../components/Loading";
 import IngredientList from "../components/IngredientList";
 import { QRCodeSVG } from "qrcode.react";
-import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Home = () => {
   const [meal, setMeal] = useState(null);
@@ -22,7 +21,7 @@ const Home = () => {
         setMeal(randomMeal);
         setLoading(false);
         document.title = `Meal Brain 🫕 - ${randomMeal.strMeal}`;
-      }, 1000);
+      }, 500);
     } catch (error) {
       console.error("Error fetching meal:", error);
       setLoading(false);
@@ -68,7 +67,7 @@ const Home = () => {
     <>
       <Navbar />
       <div className="meal-container bg-main h-full py-8">
-        <div className="meal-wrapper border border-opacity-35 border-amber-700 bg-container shadow-gray-500 shadow-2xl rounded-xl p-6 lg:p-10 mx-4 sm:mx-6 md:mx-10 lg:mx-20">
+        <div className="meal-wrapper border border-opacity-35 border-amber-500 bg-container shadow-gray-500 shadow-2xl rounded-xl p-6 lg:p-10 mx-4 sm:mx-6 md:mx-10 lg:mx-20">
           <div>
             <div className="meal-info grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <img
@@ -122,7 +121,7 @@ const Home = () => {
               </div>
               <div className="lg:w-2/4 w-full">
                 {videoId && (
-                  <div>
+                  <div className="video-container">
                     <h2 className="text-xl lg:text-2xl font-medium text-nowrap mb-4">
                       Tarif videosunu izleyin
                     </h2>
@@ -149,8 +148,8 @@ const Home = () => {
               rel="noopener noreferrer"
             >
               <QRCodeSVG
-                className="shadow-md shadow-gray-400 rounded-xl p-2 bg-slate-50 duration-150 hover:scale-95"
-                value={`${meal.strSource}`}
+                className="shadow-md shadow-gray-400 rounded-xl p-2 bg-slate-50 duration-150"
+                value={`${meal.strSource} `}
                 size={256}
               />
             </a>
@@ -158,7 +157,7 @@ const Home = () => {
           <div className="flex justify-center items-center mt-12 mb-6">
             <button
               onClick={fetchMeal}
-              className="group flex gap-3 justify-center items-center rounded-full bg-amber-800 text-lg text-white px-6 py-2 hover:bg-amber-900 transition-transform duration-300 ease-linear shadow-md opacity-60 hover:opacity-100 transform hover:scale-110"
+              className="group flex gap-3 justify-center items-center rounded-full bg-amber-800 text-lg text-white px-6 py-2 hover:bg-amber-900 transition-transform duration-300 ease-linear shadow-md opacity-60 hover:opacity-100 transform hover:scale-105"
             >
               <img
                 src="/assets/ai.svg"

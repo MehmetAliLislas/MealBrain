@@ -88,7 +88,7 @@ function AskAI() {
   }, [history]);
 
   return (
-    <div className="bg-container h-screen ">
+    <div className="bg-main h-screen ">
       <Navbar />
       <div className="p-4">
         <div className="max-w-6xl mx-auto bg-container p-6 border border-opacity-35 border-green-200 shadow-gray-500 shadow-2xl rounded-xl">
