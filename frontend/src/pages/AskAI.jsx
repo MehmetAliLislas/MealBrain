@@ -93,9 +93,11 @@ function AskAI() {
       <div className="p-4">
         <div className="max-w-6xl mx-auto bg-container p-6 border border-opacity-35 border-green-200 shadow-gray-500 shadow-2xl rounded-xl">
           <div className="overflow-y-auto lg:h-[500px] h-[300px]">
-            <div className="opening-message">
-              <span className="text-sm text-gray-600 -mb-4">Meal Brain 🫕</span>
-              <div className="max-w-sm px-4 py-2 rounded-xl bg-emerald-700 text-white duration-300 transition-all">
+            <div className="opening-message mb-3">
+              <span className="text-sm text-gray-600 -mb-4">
+                Meal Brain Bot 🫕
+              </span>
+              <div className="max-w-sm px-4 py-2 rounded-xl bg-emerald-600 text-white duration-300 transition-all text-[14px]">
                 Merhaba! Nasıl yardımcı olabilirim?
               </div>
             </div>
@@ -114,13 +116,13 @@ function AskAI() {
                         : "text-gray-600 text-2xl"
                     }`}
                   >
-                    {chat.role === "user" ? "Siz" : "Meal Brain 🫕"}
+                    {chat.role === "user" ? "Siz" : "Meal Brain Bot 🫕"}
                   </span>
                   <div
-                    className={`max-w-sm px-4 py-2 rounded-2xl ${
+                    className={`ai-message max-w-sm px-4 py-2 rounded-2xl ${
                       chat.role === "user"
-                        ? "bg-green-600 text-white duration-300 transition-all mr-4 break-words"
-                        : "bg-emerald-700 text-white duration-300 transition-all break-words"
+                        ? "bg-green-600 text-white duration-300 transition-all mr-4 break-words text-[14px]"
+                        : "bg-emerald-600 text-white duration-300 transition-all break-words text-[14px]"
                     }`}
                     ref={chat.role === "user" ? lastUserMessageRef : null}
                   >

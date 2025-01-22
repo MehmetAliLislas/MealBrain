@@ -4,6 +4,7 @@
 
 * {
   font-family: "Poppins", serif;
+  line-height: 1.5;
 }
 
 body {
@@ -22,4 +23,14 @@ h6,
 p,
 li {
   cursor: default;
+}
+
+.ai-message strong {
+  font-weight: 600;
+  color: aliceblue;
+}
+
+.ai-message p:has(strong) {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
